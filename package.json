@@ -1,0 +1,29 @@
+{
+  "name": "mincer-browserify",
+  "version": "0.0.1",
+  "description": "Mincer Plugin For Browserify",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/gja/mincer-browserify.git"
+  },
+  "keywords": [
+    "mincer",
+    "browserify",
+    "connect-assets"
+  ],
+  "author": "Tejas Dinkar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gja/mincer-browserify/issues"
+  },
+  "homepage": "https://github.com/gja/mincer-browserify#readme",
+  "dependencies": {
+    "lodash": "^4.2.0",
+    "mincer": "^1.4.1",
+    "temp": "^0.8.3"
+  }
+}
