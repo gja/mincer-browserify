@@ -18,15 +18,14 @@ browserifyEngine.configure = function (opts) {
 };
 
 browserifyEngine.prototype.evaluate = function() {
-  try {
-    var tempfile = temp.openSync('application.js');
-    child.spawnSync(options.browserifyExecutable, _.concat(["-o", tempfile.path], options.params, [this.file]));
-    var result = fs.readFileSync(tempfile.path, { encoding: "utf-8" });
-    fs.close(tempfile.fd, temp.cleanup);
+  var tempfile = temp.openSync('application.js');
+  var processResult = child.spawnSync(options.browserifyExecutable, _.concat(["-o", tempfile.path], options.params, [this.file]));
+  var result = fs.readFileSync(tempfile.path, { encoding: "utf-8" });
+  fs.close(tempfile.fd, temp.cleanup);
+  if(processResult.status == 0) {
     return result;
-  } catch(err) {
-    Error.captureStackTrace(err);
-    return "throw new Error(decodeURI('" + encodeURI(err.stack) + "'))";
+  } else {
+    throw new Error(processResult.stderr);
   }
 }
 browserifyEngine.defaultMimeType = 'application/javascript'

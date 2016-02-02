@@ -1,6 +1,6 @@
 {
   "name": "mincer-browserify",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Mincer Plugin For Browserify",
   "main": "index.js",
   "scripts": {
